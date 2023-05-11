@@ -163,10 +163,7 @@ app.post("/new_driver", (req, res) => {
 //start server on port 3001 or process.env
 app.listen(process.env.PORT || 3001, async () => {
   await mongoose
-    .connect(
-      "mongodb+srv://abhayrajeshshah:%23Abhay17@cluster0.jrxuupd.mongodb.net/Driver_Data?retryWrites=true&w=majority",
-      { useNewUrlParser: true }
-    )
+    .connect(process.env.MONGO_URL, { useNewUrlParser: true })
     .then(() => {
       console.log("Connected to server");
     });
